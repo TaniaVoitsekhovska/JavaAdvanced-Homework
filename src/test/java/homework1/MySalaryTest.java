@@ -1,3 +1,6 @@
+package homework1;
+
+import homework1.MySalary;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;

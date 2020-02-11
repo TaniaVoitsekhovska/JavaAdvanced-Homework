@@ -1,3 +1,5 @@
+package homework1;
+
 public class MySalary {
 
     public double getSalary(double hourPayment, int hoursToWorkPerMonth, int hoursOfDisease) {
