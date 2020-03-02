@@ -17,13 +17,10 @@ public class MySalaryTest {
             System.out.println("FAILED--> " + description.getMethodName());
         }
 
-        ;
 
         protected void succeeded(org.junit.runner.Description description) {
             System.out.println("SUCCEED--> " + description.getMethodName());
         }
-
-        ;
     };
 
     @Before
