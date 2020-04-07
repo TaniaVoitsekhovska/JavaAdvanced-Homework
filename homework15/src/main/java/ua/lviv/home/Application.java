@@ -6,7 +6,7 @@ import org.hibernate.Transaction;
 import java.util.Arrays;
 import java.util.HashSet;
 
-public class Main
+public class Application
 {
     public static void main( String[] args ) {
 
