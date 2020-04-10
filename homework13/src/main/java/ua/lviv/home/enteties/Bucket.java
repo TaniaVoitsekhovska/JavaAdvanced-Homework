@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -71,9 +70,9 @@ public class Bucket {
 
     public static Bucket of(ResultSet result) {
         try {
-            Integer bucketId = result.getInt("id");
-            Integer userId = result.getInt("user_id");
-            Integer productId = result.getInt("product_id");
+            int bucketId = result.getInt("id");
+            int userId = result.getInt("user_id");
+            int productId = result.getInt("product_id");
             Timestamp purchaseDate = result.getTimestamp("purchase_date");
             return new Bucket(bucketId, userId, productId, purchaseDate);
         } catch (SQLException e) {

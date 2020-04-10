@@ -1,6 +1,5 @@
 package ua.lviv.home.daos;
 
-import org.apache.commons.lang3.NotImplementedException;
 import org.apache.log4j.Logger;
 import ua.lviv.home.EntityManagerUtils;
 import ua.lviv.home.enteties.Bucket;
@@ -62,7 +61,7 @@ public class BucketDao implements CRUD<Bucket> {
 
     @Override
     public void update(Bucket t, int id) {
-        throw new NotImplementedException("there is no update method for bucket");
+        throw new UnsupportedOperationException("there is no update method for bucket");
     }
 
     @Override

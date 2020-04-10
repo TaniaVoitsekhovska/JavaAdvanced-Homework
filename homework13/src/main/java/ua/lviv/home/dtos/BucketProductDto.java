@@ -5,7 +5,7 @@ import ua.lviv.home.enteties.Product;
 import java.util.Date;
 
 public class BucketProductDto {
-    public Integer id;
+    public int id;
     public Date purchaseDate;
     public Product product;
 }
