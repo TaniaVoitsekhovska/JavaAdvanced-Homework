@@ -3,13 +3,14 @@ package ua.lviv.home.enteties;
 import javax.persistence.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 @Entity
 @Table(name = "products")
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
     private String name;
     private String description;
     private Double price;
@@ -17,7 +18,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(Integer id, String name, String description, Double price) {
+    public Product(int id, String name, String description, Double price) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -30,11 +31,11 @@ public class Product {
         this.price = price;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -64,7 +65,7 @@ public class Product {
 
     public static Product of(ResultSet result) {
         try {
-            Integer productId = result.getInt("id");
+            int productId = result.getInt("id");
             String name = result.getString("name");
             String description = result.getString("description");
             Double purchasePrice = result.getDouble("price");
@@ -75,46 +76,20 @@ public class Product {
     }
 
     @Override
-    public int hashCode() {
-        final int prime = 31;
-        int result = 1;
-        result = prime * result + ((description == null) ? 0 : description.hashCode());
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
-        result = prime * result + ((name == null) ? 0 : name.hashCode());
-        result = prime * result + ((price == null) ? 0 : price.hashCode());
-        return result;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Product product = (Product) o;
+        return id == product.id &&
+                Objects.equals(name, product.name) &&
+                Objects.equals(description, product.description) &&
+                Objects.equals(price, product.price);
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj)
-            return true;
-        if (obj == null)
-            return false;
-        if (getClass() != obj.getClass())
-            return false;
-        Product other = (Product) obj;
-        if (description == null) {
-            if (other.description != null)
-                return false;
-        } else if (!description.equals(other.description))
-            return false;
-        if (id == null) {
-            if (other.id != null)
-                return false;
-        } else if (!id.equals(other.id))
-            return false;
-        if (name == null) {
-            if (other.name != null)
-                return false;
-        } else if (!name.equals(other.name))
-            return false;
-        if (price == null) {
-            if (other.price != null)
-                return false;
-        } else if (!price.equals(other.price))
-            return false;
-        return true;
+    public int hashCode() {
+
+        return Objects.hash(id, name, description, price);
     }
 
     @Override
