@@ -15,10 +15,10 @@ public class SpringCoreProjectApplication {
 
 		StudentDao studentDao = (StudentDao) context.getBean("student");
 
-		studentDao.create(new Student("John", 18));
-		studentDao.create(new Student("Andrew", 34));
-		studentDao.create(new Student("Olia", 25));
-		studentDao.create(new Student("Mathew", 53));
+		studentDao.create(new Student(1,"John", 18));
+		studentDao.create(new Student(25,"Andrew", 34));
+		studentDao.create(new Student(33,"Olia", 25));
+		studentDao.create(new Student(2,"Mathew", 53));
 		studentDao.readAll().stream().forEach(System.out::println);
 		System.out.println();
 
@@ -30,7 +30,8 @@ public class SpringCoreProjectApplication {
 		System.out.println(studentDao.readById(2));
 		System.out.println();
 
-		studentDao.delete(1);
+		studentDao.delete(33);
+		System.out.println("After deleting student:");
 		studentDao.readAll().stream().forEach(System.out::println);
 	}
 }
