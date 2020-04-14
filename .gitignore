@@ -7,3 +7,7 @@ target/
 /target/
 */*.iml
 .gradle
+.mvn
+.md
+mvnw
+*.cmd
