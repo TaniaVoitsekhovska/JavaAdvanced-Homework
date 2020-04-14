@@ -3,12 +3,13 @@ package ua.lviv.home.SpringCoreProject.dao;
 import ua.lviv.home.SpringCoreProject.entity.Student;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface CRUD {
 
     Student create(Student student);
 
-    Student readById(int id);
+    Optional<Student> readById(int id);
 
     List<Student> readAll();
 

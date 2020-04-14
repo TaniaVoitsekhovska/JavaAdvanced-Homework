@@ -5,6 +5,7 @@ import ua.lviv.home.SpringCoreProject.entity.Student;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Optional;
 
 public class StudentDao implements CRUD {
 
@@ -12,13 +13,12 @@ public class StudentDao implements CRUD {
 
     @Override
     public Student create(Student student) {
-        if(student.getId()==0){
+        if (student.getId() == 0) {
             throw new RuntimeException("id cannot be empty or 0!!!");
         }
         boolean checkStudentByNameExistence = students.stream()
                 .anyMatch(std -> std.getId() == student.getId());
         if (!checkStudentByNameExistence) {
-//            student.setId(students.size() - 1);
             students.add(student);
             return student;
         } else {
@@ -27,13 +27,12 @@ public class StudentDao implements CRUD {
     }
 
     @Override
-    public Student readById(int id) {
-        Student student = students.stream()
-                .filter(std -> std.getId() == id).findFirst()
-                .orElseGet(null);
-        if (student == null) {
-            System.out.println(String.format("There is no student with id=%d", id));
-        }
+    public Optional<Student> readById(int id) {
+        Optional<Student> student;
+        student = students.stream().filter(std -> std.getId() == id).findFirst();
+        if (!student.isPresent())
+            System.out.println(String.format("Method readById failed. There is no student with id=%d", id));
+
         return student;
     }
 
@@ -46,7 +45,8 @@ public class StudentDao implements CRUD {
     @Override
     public Student update(int idToUpdate, Student student) {
         Student studentToUpdate = students.stream()
-                .filter(std -> std.getId() == idToUpdate).findAny()
+                .filter(std -> std.getId() == idToUpdate)
+                .findAny()
                 .orElseThrow(() -> new NoSuchElementException(String.format("There is no student with id=%d", idToUpdate)));
 
         student.setId(idToUpdate);

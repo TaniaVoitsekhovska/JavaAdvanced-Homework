@@ -33,5 +33,7 @@ public class SpringCoreProjectApplication {
 		studentDao.delete(33);
 		System.out.println("After deleting student:");
 		studentDao.readAll().stream().forEach(System.out::println);
+
+		System.out.println(studentDao.readById(22));
 	}
 }
