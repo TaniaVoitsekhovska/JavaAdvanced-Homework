@@ -2,8 +2,8 @@ package ua.lviv.home.SpringDataJPA;
 
 public interface UniversityDTO {
 
-    Integer getId();
+    int getId();
     String getName();
     String getAddress();
-    Integer getStudents();
+    int getStudents();
 }

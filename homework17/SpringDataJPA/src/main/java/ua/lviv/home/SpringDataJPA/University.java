@@ -16,7 +16,7 @@ public class University {
     private int numberOfInstitutes;
     @Column(name = "amount_of_students")
     private int amountOfStudents;
-    @Column(name = "location")
+    @Column(name = "address")
     private String address;
 
     public University() {
