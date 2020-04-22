@@ -1,4 +1,4 @@
-package ua.lviv.home.SpringWebHomework18;
+package ua.lviv.home.SpringWebHomework18.entities;
 
 import javax.persistence.*;
 
@@ -16,15 +16,18 @@ public class Participant {
     private String level;
     @Column(name = "primary_skill")
     private String primarySkill;
+    @Column(name = "cover_id")
+    private String coverId;
 
     public Participant() {
     }
 
-    public Participant(String name, String email, String level, String primarySkill) {
+    public Participant(String name, String email, String level, String primarySkill,String coverId) {
         this.name = name;
         this.email = email;
         this.level = level;
         this.primarySkill = primarySkill;
+        this.coverId=coverId;
     }
 
     public int getId() {
@@ -67,6 +70,14 @@ public class Participant {
         this.primarySkill = primarySkill;
     }
 
+    public String getCoverId() {
+        return coverId;
+    }
+
+    public void setCoverId(String coverId) {
+        this.coverId = coverId;
+    }
+
     @Override
     public String toString() {
         return "Participant{" +
@@ -75,6 +86,7 @@ public class Participant {
                 ", email='" + email + '\'' +
                 ", level='" + level + '\'' +
                 ", primarySkill='" + primarySkill + '\'' +
+                ", coverId='" + coverId + '\'' +
                 '}';
     }
 }

@@ -1,4 +1,4 @@
-package ua.lviv.home.SpringWebHomework18;
+package ua.lviv.home.SpringWebHomework18.controllers;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

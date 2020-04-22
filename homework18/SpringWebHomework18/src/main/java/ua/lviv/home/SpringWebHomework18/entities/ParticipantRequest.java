@@ -1,4 +1,4 @@
-package ua.lviv.home.SpringWebHomework18;
+package ua.lviv.home.SpringWebHomework18.entities;
 
 public class ParticipantRequest {
 
@@ -6,6 +6,7 @@ public class ParticipantRequest {
     private String email;
     private String level;
     private String primarySkill;
+    private String coverId;
 
     public String getName() {
         return name;
@@ -37,5 +38,13 @@ public class ParticipantRequest {
 
     public void setPrimarySkill(String primarySkill) {
         this.primarySkill = primarySkill;
+    }
+
+    public String getCoverId() {
+        return coverId;
+    }
+
+    public void setCoverId(String coverId) {
+        this.coverId = coverId;
     }
 }
