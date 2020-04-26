@@ -1,8 +1,12 @@
-package ua.lviv.home.SpringWebHomework18;
+package ua.lviv.home.SpringWebHomework18.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import ua.lviv.home.SpringWebHomework18.entities.Participant;
+import ua.lviv.home.SpringWebHomework18.entities.ParticipantRequest;
+import ua.lviv.home.SpringWebHomework18.services.ParticipantService;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;

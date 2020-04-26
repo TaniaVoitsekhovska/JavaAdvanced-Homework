@@ -35,6 +35,7 @@
                     <th>Email</th>
                     <th>Level</th>
                     <th>Primary Skill</th>
+                    <th>Cover</th>
                     <th>Edit</th>
                     <th>Delete</th>
                 </tr>
@@ -47,6 +48,9 @@
                         <td>${participant.email}</td>
                         <td>${participant.level}</td>
                         <td>${participant.primarySkill}</td>
+                        <td>
+                            <img src="/Participants/participant-cover-files/download/${participant.coverId}" width="50px">
+                        </td>
                         <td><a href="/Participants/update?id=${participant.id}">edit</a></td>
                         <td><a href="/Participants/delete?id=${participant.id}">delete</a></td>
                     </tr>
@@ -59,15 +63,27 @@
             <form action="${mode == 'PARTICIPANT_EDIT' ? "/Participants/save": "/Participants/create"}" method="POST">
                 <c:choose>
                     <c:when test="${mode == 'PARTICIPANT_EDIT'}">
+                        <img src="/Participants/participant-cover-files/download/${participant.coverId}" width="200px"
+                             id="participant-cover">
                         <input type="hidden" value="${participant.id}" class="form-control" id="id" name="id">
+                    </c:when>
+                    <c:when test="${mode == 'PARTICIPANT_CREATE'}">
+                        <img src="https://omegamma.com.au/wp-content/uploads/2017/04/default-image.jpg"
+                             id="participant-cover" width="200px">
                     </c:when>
                 </c:choose>
 
                 <div class="form-group">
+                    <label for="cover-file">Participant cover</label>
+                    <input id="cover-file" type="file" />
+                </div>
+                <input type="hidden" value=""
+                       class="form-control"
+                       id="cover-id" name="coverId">
                     <label for="name">Name:</label> <input type="text"
                                                            class="form-control" id="name" name="name"
                                                            value="${participant.name}">
-                </div>
+
 
 
                 <div class="form-group">
@@ -77,7 +93,7 @@
                 </div>
                 <div class="form-group">
                     <label for="level">Level(choose level):</label> <select class="form-control" id="level" name="level"
-                                                              value="${participant.level}">
+                                                                            value="${participant.level}">
                     <option>L1</option>
                     <option>L2</option>
                     <option>L3</option>
@@ -96,6 +112,8 @@
         </c:when>
 
     </c:choose>
+    <script src="${pageContext.request.contextPath}/js/participant.js"></script>
+
 </div>
 </body>
 </html>
